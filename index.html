@@ -55,13 +55,28 @@
           </tbody></table>
           <table style="width:100%;border:0px;border-spacing:0px 10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
-    <tr>
+    <tr onmouseenter="egodelta_start()" onmouseleave="egodelta_stop()">
       <td style="padding:16px;width:20%;vertical-align:middle">
         <div class="one">
           <a href="https://namhkoh.github.io/WACV2027_EgoDelta/">
-            <img src="images/egodelta.webp" width="160" height="160" style="object-fit:contain;display:block;" alt="EgoDelta overview: egocentric demonstrations, 3D scene reconstruction, attachment-target recovery, and robot execution">
+            <div class="two" id="egodelta_image" style="opacity:0;">
+              <video id="egodelta_video" src="videos/demo_deleaf_pipeline.mp4" width="160" height="160" style="object-fit:contain;display:block;" muted loop playsinline preload="metadata" aria-label="EgoDelta deleafing pipeline demonstration">
+                EgoDelta deleafing pipeline demonstration.
+              </video>
+            </div>
+            <img src="images/egodelta.png" width="160" height="160" style="object-fit:contain;display:block;" alt="EgoDelta overview: egocentric demonstrations, 3D scene reconstruction, attachment-target recovery, and robot execution">
           </a>
         </div>
+        <script type="text/javascript">
+          function egodelta_start() {
+            document.getElementById('egodelta_image').style.opacity = "1";
+            document.getElementById('egodelta_video').play().catch(() => {});
+          }
+          function egodelta_stop() {
+            document.getElementById('egodelta_image').style.opacity = "0";
+            document.getElementById('egodelta_video').pause();
+          }
+        </script>
       </td>
       <td style="padding:8px;width:80%;vertical-align:middle">
         <a href="https://namhkoh.github.io/WACV2027_EgoDelta/">
